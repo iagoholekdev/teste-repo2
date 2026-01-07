@@ -13,7 +13,7 @@ import reason5 from "@/assets/ela.jpeg";
 const reasons = [
   { id: 1, title: "Os bichos me adoram", description: "Quer uma green flag maior que essa?", image: reason1 },
   { id: 2, title: "Sou um baita cozinheiro", description: "Faria tudo o que você gosta de comer", image: reason2 },
-  { id: 3, title: "Nerdola", description: "Gosto de compartilhar conhecimento, e gostaria de aprender com você", image: reason3 },
+  { id: 3, title: "Nerdola", description: "Quer um cartão black clonado só pra você? Quer que eu hackeie um banco?", image: reason3 },
   { id: 4, title: "Gremista", description: "Todo mundo sabe que você é gremista fanática", image: reason4 },
   { id: 5, title: "Eu só penso em você", description: "Precisa de descrição? Olha esse sorriso", image: reason5  },
 ];
