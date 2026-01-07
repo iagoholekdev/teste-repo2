@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import ReasonCard from "@/components/ReasonCard";
 import Poem from "@/components/Poem";
@@ -15,7 +15,7 @@ const reasons = [
   { id: 2, title: "Sou um baita cozinheiro", description: "Faria tudo o que você gosta de comer", image: reason2 },
   { id: 3, title: "Nerdola", description: "Quer um cartão black clonado só pra você? Quer que eu hackeie um banco?", image: reason3 },
   { id: 4, title: "Gremista", description: "Todo mundo sabe que você é gremista fanática", image: reason4 },
-  { id: 5, title: "Eu só penso em você", description: "Precisa de descrição? Olha esse sorriso", image: reason5  },
+  { id: 5, title: "Eu só penso em você", description: "Precisa de descrição? Olha esse sorriso", image: reason5 },
 ];
 
 const Index = () => {
@@ -23,10 +23,29 @@ const Index = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [showPoem, setShowPoem] = useState(false);
   const [showQuestion, setShowQuestion] = useState(false);
+  const [dots, setDots] = useState(".");
+
+  useEffect(() => {
+    if (!started || currentStep !== 0) return;
+
+    const dotsInterval = setInterval(() => {
+      setDots((prev) => (prev.length === 3 ? "." : prev + "."));
+    }, 1000);
+
+    const timeout = setTimeout(() => {
+      setCurrentStep(1);
+    }, 3000);
+
+    return () => {
+      clearInterval(dotsInterval);
+      clearTimeout(timeout);
+    };
+  }, [started, currentStep]);
 
   const handleStart = () => {
     setStarted(true);
-    setCurrentStep(1);
+    setCurrentStep(0);
+    setDots(".");
   };
 
   const handleRestart = () => {
@@ -34,11 +53,12 @@ const Index = () => {
     setCurrentStep(0);
     setShowPoem(false);
     setShowQuestion(false);
+    setDots(".");
   };
 
   const handleNext = () => {
     if (currentStep < 5) {
-      setCurrentStep(currentStep + 1);
+      setCurrentStep((prev) => prev + 1);
     } else {
       setShowPoem(true);
     }
@@ -49,7 +69,6 @@ const Index = () => {
     setShowQuestion(true);
   };
 
-  // Tela inicial
   if (!started) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-stone-100 via-amber-50 to-stone-200 flex items-center justify-center p-4">
@@ -69,7 +88,16 @@ const Index = () => {
     );
   }
 
-  // Mostrando os motivos
+  if (started && currentStep === 0 && !showPoem && !showQuestion) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-stone-100 via-amber-50 to-stone-200 flex items-center justify-center p-4">
+        <h1 className="text-3xl md:text-5xl font-light text-stone-800 text-center animate-fade-in">
+          5 motivos para você topar sair comigo{dots}
+        </h1>
+      </div>
+    );
+  }
+
   if (currentStep >= 1 && currentStep <= 5 && !showPoem && !showQuestion) {
     const reason = reasons[currentStep - 1];
     return (
@@ -86,7 +114,6 @@ const Index = () => {
     );
   }
 
-  // Mostrando o poema
   if (showPoem) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-stone-100 via-amber-50 to-stone-200 flex items-center justify-center p-4">
@@ -95,7 +122,6 @@ const Index = () => {
     );
   }
 
-  // Pergunta final
   if (showQuestion) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-stone-100 via-amber-50 to-stone-200 flex items-center justify-center p-4">
