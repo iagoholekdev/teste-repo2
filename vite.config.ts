@@ -7,7 +7,7 @@ export default defineConfig({
   base: "/teste-repo2/",
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src")
-    }
-  }
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
 });
