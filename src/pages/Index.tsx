@@ -7,14 +7,14 @@ import FinalQuestion from "@/components/FinalQuestion";
 import reason1 from "@/assets/dog.jpeg";
 import reason2 from "@/assets/churras.jpeg";
 import reason3 from "@/assets/nerd.jpeg";
-import reason4 from "@/assets/gremio.jpeg";
+import reason4 from "@/assets/estilo.jpeg";
 import reason5 from "@/assets/ela.jpeg";
 
 const reasons = [
   { id: 1, title: "Os bichos me adoram", description: "Quer uma green flag maior que essa?", image: reason1 },
   { id: 2, title: "Sou um baita cozinheiro", description: "Faria tudo o que você gosta de comer", image: reason2 },
   { id: 3, title: "Nerdola", description: "Quer um cartão black clonado só pra você? Quer que eu hackeie um banco?", image: reason3 },
-  { id: 4, title: "Gremista", description: "Todo mundo sabe que você é gremista fanática", image: reason4 },
+  { id: 4, title: "Estiloso", description: "Não vai passar vergonha comigo nos lugares!!", image: reason4 },
   { id: 5, title: "Eu só penso em você", description: "Precisa de descrição? Olha esse sorriso", image: reason5 },
 ];
 
@@ -92,7 +92,7 @@ const Index = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-stone-100 via-amber-50 to-stone-200 flex items-center justify-center p-4">
         <h1 className="text-3xl md:text-5xl font-light text-stone-800 text-center animate-fade-in">
-          5 motivos para você topar sair comigo{dots}
+          5 motivos para você topar namorar (futuramente né, calma) comigo{dots}
         </h1>
       </div>
     );

@@ -23,7 +23,7 @@ const FinalQuestion = ({ onRestart }: FinalQuestionProps) => {
           </h2>
           
           <p className="text-stone-600 text-xl leading-relaxed mb-6">
-            Me chama que já tenho tudo preparado
+            Tarde demais, já era, agora você tem que me aturar pra sempre!!!!!!!!!
           </p>
           
           {onRestart && (
@@ -44,7 +44,7 @@ const FinalQuestion = ({ onRestart }: FinalQuestionProps) => {
     <div className="max-w-md w-full bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 animate-fade-in">
       <div className="text-center">
         <h2 className="text-3xl font-light text-stone-800 mb-8">
-          Quer sair comigo?
+          Digamos que eu quero namorar com você, você aceitaria? Só por curiosidade sabe......
         </h2>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
